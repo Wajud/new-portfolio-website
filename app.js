@@ -10,7 +10,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const navLinks = document.querySelectorAll("aside nav li a");
 navLinks.forEach((navLink) =>
   navLink.addEventListener("click", (e) => {
-    //  e.preventDefault();
     navLinks.forEach((navLink) => {
       navLink.classList.remove("text-green-300");
     });
@@ -28,7 +27,6 @@ mobileNavContainer.classList.add(`top-[${headerHeight}px]`);
 
 const mobileNav = document.querySelector("#mobile-nav ul");
 
-const menuControls = document.getElementById("menu-controls");
 const openMenu = document.getElementById("open-menu");
 const closeMenu = document.getElementById("close-menu");
 
@@ -73,3 +71,44 @@ window.addEventListener("scroll", () => {
 });
 
 //End of Scroll to Top Arrow Functionality
+
+//Color Switcher Sliding Functionality
+
+const settings = document.getElementById("settings");
+const themesContainer = document.getElementById("themes-container");
+
+settings.addEventListener("click", () => {
+  if (themesContainer.classList.contains("-right-[150px]")) {
+    themesContainer.classList.replace("-right-[150px]", "right-0");
+  } else {
+    themesContainer.classList.replace("right-0", "-right-[150px]");
+  }
+});
+
+//Themes Color Picking
+
+// let defaultThemes = "green-500";
+
+const bgThemesUser = document.querySelectorAll(".bg-themesColor");
+const textThemesUser = document.querySelectorAll(".text-themesColor");
+const hireMeTheme = document.querySelector(".hire-me-theme");
+
+const themesPicker = document.querySelectorAll("p[data-theme]");
+themesPicker.forEach((picker) =>
+  picker.addEventListener("click", () => {
+    const currentbgColor = `${picker.dataset.theme}`;
+    bgThemesUser.forEach((user) => {
+      user.setAttribute("style", `background-color: ${currentbgColor};`);
+    });
+
+    textThemesUser.forEach((text) => {
+      text.setAttribute("style", `color: ${currentbgColor};`);
+    });
+
+    hireMeTheme.setAttribute(
+      "style",
+      `border-color: ${currentbgColor}; color:${currentbgColor}; `
+    );
+  })
+);
+// console.log(themesPicker);

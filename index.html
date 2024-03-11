@@ -48,10 +48,14 @@
          }
          
       }
+   
 
-
-
+   .color-switcher-transition{
+      transition-property: all;
+      transition-duration: 500ms;
    }
+
+}
     </style>
 
 
@@ -100,7 +104,40 @@
 
    </header>
 
+   <!-- SETTINGS SECTION -->
+   <section class="fixed top-[50vh] -translate-y-1/2 -right-[150px] z-30 flex items-start color-switcher-transition"
+      id="themes-container">
 
+      <div class="w-fit p-1 bg-gray-500 rounded-tl-md rounded-bl-md" id="settings">
+
+         <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6b7280"
+            class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+               d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+         </svg>
+      </div>
+
+      <div class="w-[150px] bg-white px-4 py-2 shadow-md">
+         <p class="py-1 border-b-2 border-gray-200 font-semibold">Color Switcher</p>
+
+         <div class="">
+
+            <div class="flex flex-wrap gap-2 py-4">
+               <p class="p-4 bg-red-500 rounded-full cursor-pointer" data-theme="red"></p>
+               <p class="p-4 bg-blue-500 rounded-full cursor-pointer" data-theme="blue"></p>
+               <p class="p-4 bg-gray-500 rounded-full cursor-pointer" data-theme="gray"></p>
+               <p class="p-4 bg-[#4d7c0f] rounded-full cursor-pointer" data-theme="#4d7c0f"></p>
+               <p class="p-4 bg-orange-500 rounded-full cursor-pointer" data-theme="orange"></p>
+               <p class="p-4 bg-indigo-500 rounded-full cursor-pointer" data-theme="indigo"></p>
+            </div>
+            <p class="bg-green-500 py-1 rounded-sm my-2 text-white text-center font-semibold cursor-pointer"
+               data-theme="#10b981">Reset
+               Default</p>
+         </div>
+      </div>
+
+   </section>
 
 
    <section class="flex relative" id="home">
@@ -157,7 +194,7 @@
                   <h2 class="font-semibold text-2xl">Welcome</h2>
                   <h1 class="font-bold text-4xl">I'm a Frontend Developer</h1>
                   <p class="text-gray-400 text-xl">based in Lagos, Nigeria</p>
-                  <button class="text-green-400 border-2 border-green-400 px-6 py-2 rounded-full mt-8">
+                  <button class="text-green-500 border-2 border-green-500 px-6 py-2 rounded-full mt-8 hire-me-theme">
                      <a href="mailto:wajudkareem757@gmail.com">Hire Me</a>
                   </button>
                </div>
@@ -172,9 +209,9 @@
                   <h1
                      class="text-6xl font-bold text-gray-300 tracking-widest absolute w-full top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
                      ABOUT ME</h1>
-                  <h2
-                     class="relative z-10 font-semibold text-2xl before:w-20 before:h-[2px] before:bg-red-400 before:absolute before:bottom-0 before:left-1/2 before:-translate-x-1/2">
+                  <h2 class="relative z-10 font-semibold text-2xl">
                      Know Me More</h2>
+                  <p class="w-20 h-[3px] bg-green-500 mx-auto mt-[-3px] relative z-40 bg-themesColor"></p>
 
                </div>
 
@@ -182,9 +219,8 @@
 
                   <div class="md:text-left">
 
-
-
-                     <h2 class="font-semibold text-xl mb-4">I'm <span class="text-green-400">Wajud Kareem,</span> a
+                     <h2 class="font-semibold text-xl mb-4">I'm <span class="text-green-500 text-themesColor">Wajud
+                           Kareem,</span> a
                         Frontend
                         Developer
                      </h2>
@@ -233,7 +269,8 @@
                      </article>
 
                      <a href="assets/kareem_wajud_resume.pdf"
-                        class="block w-fit px-4 py-2 rounded-full mt-6 bg-green-400 text-white">Download CV</a>
+                        class="block w-fit px-4 py-2 rounded-full mt-6 bg-green-500 bg-themesColor text-white">Download
+                        CV</a>
                   </div>
                </div>
 
@@ -291,9 +328,9 @@
                   <h1
                      class="text-6xl font-bold text-gray-100 tracking-widest absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
                      SUMMARY</h1>
-                  <h2
-                     class="relative z-10 font-semibold text-xl tracking-widest before:w-20 before:h-[2px] before:bg-red-400 before:absolute before:bottom-0 before:left-1/2 before:-translate-x-1/2">
+                  <h2 class="relative z-10 font-semibold text-xl tracking-widest">
                      Resum<span>&eacute;</span></h2>
+                  <p class="w-20 h-[3px] bg-green-500 mx-auto mt-[-3px] relative z-40 bg-themesColor"></p>
 
                </div>
 
@@ -308,7 +345,9 @@
 
                         <h2 class="font-bold text-2xl mb-6 px-2">My Education</h2>
                         <div class="px-3 py-8 border border-gray-300 rounded-md">
-                           <button class="bg-green-600 px-2 py-1 rounded-md text-white block w-fit mb-4">2016 -
+                           <button
+                              class="bg-green-500 bg-themesColor px-2 py-1 rounded-md text-white block w-fit mb-4">2016
+                              -
                               2022</button>
                            <h3 class="font-semibold text-xl text-gray-700 mb-2">Chemical Engineering</h3>
                            <p class="mb-4 text-red-600">University of Lagos</p>
@@ -320,7 +359,9 @@
 
                         <h2 class="font-bold text-2xl mt-12 md:mt-0 mb-6 px-2">My Experience</h2>
                         <div class="px-3 py-8 border border-gray-300 rounded-md">
-                           <button class="bg-green-600 px-2 py-1 rounded-md text-white block w-fit mb-4">Jan 2024 -
+                           <button
+                              class="bg-green-500 bg-themesColor px-2 py-1 rounded-md text-white block w-fit mb-4">Jan
+                              2024 -
                               Present</button>
                            <h3 class="font-semibold text-xl text-gray-700 mb-2">Frontend Developer/Frontend Developer
                               Tutor
@@ -330,7 +371,9 @@
                         </div>
 
                         <div class="px-3 py-8 border border-gray-300 rounded-md mt-8">
-                           <button class="bg-green-600 px-2 py-1 rounded-md text-white block w-fit mb-4">Sept 2023 -
+                           <button
+                              class="bg-green-500 bg-themesColor px-2 py-1 rounded-md text-white block w-fit mb-4">Sept
+                              2023 -
                               Present</button>
                            <h3 class="font-semibold text-xl text-gray-700 mb-2">Frontend Developer</h3>
                            <p class="mb-4 text-red-600">Octave Incorporations</p>
@@ -338,7 +381,9 @@
                         </div>
 
                         <div class="px-3 py-8 border border-gray-300 rounded-md mt-8">
-                           <button class="bg-green-600 px-2 py-1 rounded-md text-white block w-fit mb-4">Jun 2023 -
+                           <button
+                              class="bg-green-500 bg-themesColor px-2 py-1 rounded-md text-white block w-fit mb-4">Jun
+                              2023 -
                               Dec 2023</button>
                            <h3 class="font-semibold text-xl text-gray-700 mb-2">Frontend Development Fellow</h3>
                            <p class="mb-4 text-red-600">TIIDELAB</p>
@@ -363,7 +408,7 @@
                            <p class="font-semibold text-gray-800">95%</p>
                         </div>
                         <div class="rounded-md border border-gray-200 mb-8 overflow-hidden">
-                           <p class="h-2 bg-blue-400 w-[95%]"></p>
+                           <p class="h-2 bg-green-500 bg-themesColor w-[95%]"></p>
                         </div>
                      </div>
                      <div class="my-4 md:my-0">
@@ -373,7 +418,7 @@
                            <p class="font-semibold text-gray-800">90%</p>
                         </div>
                         <div class="rounded-md border border-gray-200 mb-8 overflow-hidden">
-                           <p class="h-2 bg-blue-400 w-[90%]"></p>
+                           <p class="h-2 bg-green-500 bg-themesColor w-[90%]"></p>
                         </div>
                      </div>
                      <div class="my-4 md:my-0">
@@ -383,7 +428,7 @@
                            <p class="font-semibold text-gray-800">95%</p>
                         </div>
                         <div class="rounded-md border border-gray-200 mb-8 overflow-hidden">
-                           <p class="h-2 bg-blue-400 w-[95%]"></p>
+                           <p class="h-2 bg-green-500 bg-themesColor w-[95%]"></p>
                         </div>
                      </div>
                      <div class="my-4 md:my-0">
@@ -393,7 +438,7 @@
                            <p class="font-semibold text-gray-800">85%</p>
                         </div>
                         <div class="rounded-md border border-gray-200 mb-8 overflow-hidden">
-                           <p class="h-2 bg-blue-400 w-[95%]"></p>
+                           <p class="h-2 bg-green-500 bg-themesColor w-[95%]"></p>
                         </div>
                      </div>
 
@@ -428,9 +473,9 @@
                   <h1
                      class="text-6xl text-gray-300 text-center font-bold text-gray-100 tracking-widest absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
                      PORTFOLIO </h1>
-                  <h2
-                     class="relative z-10 font-bold text-center text-3xl before:w-28 before:h-[3px] before:bg-red-400 before:absolute before:bottom-0 before:left-1/2 before:-translate-x-1/2">
+                  <h2 class="relative z-10 font-bold text-center text-3xl">
                      My Work</h2>
+                  <p class="w-28 h-[3px] bg-green-500 mx-auto mt-[-3px] relative z-40 bg-themesColor"></p>
 
                </div>
 
@@ -521,10 +566,11 @@
                      <div class="relative overflow-hidden rounded-md mb-6 flex items-stretch">
                         <img src="assets/images/flyo-desktop.jpg" alt="flyo flyo-desktop" class="w-full object-cover">
                         <div
-                           class="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.6)] hover:transition-all hover:bg-[rgba(0,0,0,0.8)]">
+                           class="absolute top-0 left-0 w-full h-80 bg-[rgba(0,0,0,0.6)] hover:transition-all hover:bg-[rgba(0,0,0,0.8)]">
                            <div class="h-full flex flex-col justify-center items-center">
 
-                              <h1 class="font-semibold text-white text-2xl opacity-[inherit]">Business Landing Page</h1>
+                              <h1 class="font-semibold text-white text-2xl opacity-[inherit]">Business Landing
+                                 Page</h1>
                            </div>
 
                         </div>
@@ -570,18 +616,19 @@
                   <h1
                      class="text-5xl text-gray-300 text-center font-bold text-gray-100 tracking-widest absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
                      TESTIMONIALS </h1>
-                  <h2
-                     class="relative z-10 font-bold text-center text-xl before:w-28 before:h-[3px] before:bg-red-400 before:absolute before:bottom-0 before:left-1/2 before:-translate-x-1/2">
+
+                  <h2 class="relative z-10 font-bold text-center text-xl">
                      TESTIMONIALS</h2>
+                  <p class="w-28 h-[3px] bg-green-500 mx-auto mt-[-3px] relative z-40 bg-themesColor"></p>
 
                </div>
 
 
-               <div class="flex flex-col md:flex-row gap-x-8 justify-stretch items-stretch">
+               <div class="grid md:grid-cols-2 gap-x-8 justify-stretch items-stretch">
 
 
 
-                  <div class="bg-gray-100 py-8 px-6 rounded-md mb-6 w-[]">
+                  <div class="bg-gray-100 py-8 px-6 rounded-md mb-6">
                      <div class="flex gap-4 items-center mb-6">
                         <img src="assets/images/mubarak.jpeg" alt="mubarak" class="w-20 h-20 rounded-full">
                         <div>
@@ -685,15 +732,17 @@
                <div class="relative mt-8 mb-8 pt-40 pb-8">
 
                   <h1
-                     class="text-6xl text-gray-300 text-center font-bold text-gray-100 tracking-widest absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
+                     class="text-5xl text-gray-300 text-center font-bold text-gray-100 tracking-widest absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
                      CONTACT </h1>
-                  <h2
-                     class="relative z-10 font-bold text-center text-xl before:w-28 before:h-[3px] before:bg-red-400 before:absolute before:bottom-0 before:left-1/2 before:-translate-x-1/2">
+
+                  <h2 class="relative -mt-[78px] z-10 font-bold text-center text-xl">
                      GET IN TOUCH</h2>
+                  <p class="w-28 h-[3px] bg-green-500 mx-auto mt-[-3px] relative z-40 bg-themesColor"></p>
+
 
                </div>
 
-               <h3 class="text-xl text-center text-gray-700 mb-8">SEND A NOTE</h3>
+               <h3 class="text-xl text-center text-gray-700 mb-8 -mt-12">SEND A NOTE</h3>
 
                <form>
                   <input type="text" placeholder="Name"
@@ -706,7 +755,7 @@
                      class="block w-[90%] mx-auto h-40 px-2 py-2 border border-gray-100 rounded-md mb-6 resize-none"></textarea>
 
                   <input type="submit" value="Send Message"
-                     class="block w-fit mx-auto px-6 py-2 rounded-full bg-green-600 text-white font-semibold shadow-lg">
+                     class="block w-fit mx-auto px-6 py-2 rounded-full bg-green-500 bg-themesColor text-white font-semibold shadow-lg">
 
 
                </form>
@@ -757,7 +806,8 @@
          </main>
 
          <footer class="text-center py-2 font-normal text-gray-700">
-            Copyright &copy; <span id="year"></span> <span class="text-green-600">Wajud</span>. All Rights Reserved.
+            Copyright &copy; <span id="year"></span> <span class="text-green-500 text-themesColor">Wajud</span>. All
+            Rights Reserved.
          </footer>
       </section>
    </section>
