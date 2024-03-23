@@ -111,4 +111,57 @@ themesPicker.forEach((picker) =>
     );
   })
 );
-// console.log(themesPicker);
+
+//EmailJS
+
+// emailjs.init({
+//   publicKey: "UHOdW4kGc_ITaANY2",
+// });
+
+// function sendMail() {
+//   let params = {
+//     name: document.getElementById("senderName").value,
+//     message: document.getElementById("message").value,
+//   };
+
+//   emailjs.send("service_ispv3mb", "template_bhruiig", params).then(
+//     (response) => {
+//       console.log("SUCCESS!", response.status, response.text);
+//     },
+//     (error) => {
+//       console.log("FAILED...", error);
+//     }
+//   );
+// }
+
+// const emailForm = document.getElementById("messageForm");
+// emailForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   sendMail();
+//   emailForm.reset();
+// });
+
+//Counting on Scroll
+
+const holders = document.querySelectorAll("[data-end]");
+const third = document.getElementById("third-counter");
+
+window.addEventListener("scroll", () => {
+  if (
+    window.scrollY > third.getBoundingClientRect().top &&
+    window.scrollY < third.getBoundingClientRect().bottom
+  ) {
+    holders.forEach((holder) => {
+      let start = 0;
+      let end = parseInt(holder.getAttribute("data-end"));
+      let counter = setInterval(() => {
+        start++;
+        holder.textContent = start;
+
+        if (start == end) {
+          clearInterval(counter);
+        }
+      }, 80);
+    });
+  }
+});
