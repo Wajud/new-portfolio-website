@@ -112,35 +112,6 @@ themesPicker.forEach((picker) =>
   })
 );
 
-//EmailJS
-
-// emailjs.init({
-//   publicKey: "UHOdW4kGc_ITaANY2",
-// });
-
-// function sendMail() {
-//   let params = {
-//     name: document.getElementById("senderName").value,
-//     message: document.getElementById("message").value,
-//   };
-
-//   emailjs.send("service_ispv3mb", "template_bhruiig", params).then(
-//     (response) => {
-//       console.log("SUCCESS!", response.status, response.text);
-//     },
-//     (error) => {
-//       console.log("FAILED...", error);
-//     }
-//   );
-// }
-
-// const emailForm = document.getElementById("messageForm");
-// emailForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   sendMail();
-//   emailForm.reset();
-// });
-
 //Counting on Scroll
 
 const holders = document.querySelectorAll("[data-end]");
