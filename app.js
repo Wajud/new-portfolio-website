@@ -136,3 +136,60 @@ window.addEventListener("scroll", () => {
     });
   }
 });
+
+//Contact us Functionality
+
+const sendButton = document.querySelector("button#send-button");
+
+const sendEmail = (e) => {
+  e.preventDefault();
+  const name = document.getElementById("name-field").value;
+  const email = document.getElementById("email-field").value;
+  const message = document.getElementById("message-field").value;
+  const emailError = document.getElementById("email-error");
+  const emailSuccess = document.getElementById("email-success");
+  const sendingEmail = document.getElementById("sending-email");
+  const contactForm = document.getElementById("contact-form");
+
+  if (!email || !message) {
+    console.log("Kindly add reply email and message");
+    emailError.classList.remove("opacity-0");
+    emailSuccess.classList.add("opacity-0");
+    return;
+  }
+
+  emailError.classList.add("opacity-0");
+  sendingEmail.classList.remove("opacity-0");
+  const fetchParams = new URLSearchParams({
+    name,
+    senderEmail: email,
+    phoneNumber: "***",
+    message,
+    recipientEmail: "kareemwajud@yahoo.com",
+    subject: "New Mail from your PORTFOLIO website",
+  });
+
+  fetch(
+    `https://main-node-mailer.onrender.com/contact-us?${fetchParams.toString()}`,
+    {
+      method: "GET",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      },
+    }
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      sendingEmail.classList.add("opacity-0");
+      emailSuccess.classList.remove("opacity-0");
+
+      contactForm.reset();
+      console.log("Mail sent!");
+
+      setTimeout(() => emailSuccess.classList.add("opacity-0"), 3000);
+    })
+    .catch((err) => console.error(err));
+};
+
+sendButton.addEventListener("click", sendEmail);
