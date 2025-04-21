@@ -143,6 +143,8 @@ const sendButton = document.querySelector("button#send-button");
 
 const sendEmail = (e) => {
   e.preventDefault();
+  sendButton.disabled = true;
+  sendButton.classList.add("cursor-wait");
   const name = document.getElementById("name-field").value;
   const email = document.getElementById("email-field").value;
   const message = document.getElementById("message-field").value;
@@ -188,6 +190,9 @@ const sendEmail = (e) => {
       console.log("Mail sent!");
 
       setTimeout(() => emailSuccess.classList.add("opacity-0"), 3000);
+      sendButton.disabled = false;
+
+      sendButton.classList.remove("cursor-wait");
     })
     .catch((err) => console.error(err));
 };
